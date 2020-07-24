@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+    <task-flow-definition id="clock-task-flow-definition">
+        <default-activity>digitalclockworker</default-activity>
+        <data-control-scope>
+            <shared/>
+        </data-control-scope>
+        <managed-bean id="__1">
+            <managed-bean-name>DigitalClockBean</managed-bean-name>
+            <managed-bean-class>de.hahn.blog.digitalclock.view.DigitalClockBean</managed-bean-class>
+            <managed-bean-scope>backingBean</managed-bean-scope>
+            <managed-property>
+                <property-name>context</property-name>
+                <property-class>de.hahn.blog.digitalclock.view.DigitalClockContextBean</property-class>
+                <value>#{pageFlowScope.DigitalClockContext}</value>
+            </managed-property>
+        </managed-bean>
+        <managed-bean id="__3">
+            <managed-bean-name>DigitalClockContext</managed-bean-name>
+            <managed-bean-class>de.hahn.blog.digitalclock.view.DigitalClockContextBean</managed-bean-class>
+            <managed-bean-scope>pageFlow</managed-bean-scope>
+        </managed-bean>
+        <view id="digitalclockworker">
+            <page>/digitalclockworker.jsff</page>
+        </view>
+        <use-page-fragments/>
+    </task-flow-definition>
+</adfc-config>

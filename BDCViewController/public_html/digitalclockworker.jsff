@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGroupLayout id="pgl1">
+        <af:panelFormLayout id="pfl1">
+            <f:facet name="footer"/>
+            <af:resource type="javascript">
+              function startTime(id) {
+                  console.log('ID=' + id);
+                  var today = new Date();
+                  var h = today.getHours();
+                  var m = today.getMinutes();
+                  var s = today.getSeconds();
+                  m = checkTime(m);
+                  s = checkTime(s);
+                  var text = AdfPage.PAGE.findComponentByAbsoluteId(id);
+                  var time = h + ":" + m + ":" + s;
+                  text.setValue(time);
+                  t = setTimeout(startTime, 500, id);
+              }
+
+              function checkTime(i) {
+                  if (i &lt; 10) {
+                      i = "0" + i;
+                  }
+                  return i;
+              }
+            </af:resource>
+        </af:panelFormLayout>
+        <af:outputText value="#{backingBeanScope.DigitalClockBean.time}" id="txt" clientComponent="true"
+                       binding="#{backingBeanScope.DigitalClockBean.digitalClockOutput}"></af:outputText>
+    </af:panelGroupLayout>
+</ui:composition>

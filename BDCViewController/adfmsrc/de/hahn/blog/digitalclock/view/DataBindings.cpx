@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="de.hahn.blog.digitalclock.view" ClientType="Generic">
+    <definitionFactories>
+        <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+                 className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+        <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+    </definitionFactories>
+    <pageMap>
+        <page path="/digitalclock.jsf" usageId="de_hahn_blog_digitalclock_view_digitalclockPageDef"/>
+    </pageMap>
+    <pageDefinitionUsages>
+        <page id="de_hahn_blog_digitalclock_view_digitalclockPageDef"
+              path="de.hahn.blog.digitalclock.view.pageDefs.digitalclockPageDef"/>
+    </pageDefinitionUsages>
+    <dataControlUsages/>
+</Application>
